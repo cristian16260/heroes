@@ -1,0 +1,24 @@
+<h2>Lista de Heroes</h2>
+<div>
+    <form [formGroup]="formgrup" (ngSubmit)="agregar()">
+    <label> Nombre del Heroe: </label> 
+    <input formControlName="name" type="text"  class="form-control" placeholder="Nombre" 
+    required maxlength="25" required minlength="5">
+        <br>
+    <button [disabled]="this.formgrup.valid" type="submit"> Añadir</button>
+    </form>
+</div>
+
+<ul class="heroes">
+    <li *ngFor="let hero of heroeslist">
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> 
+            <span class="name">{{hero.name}}</span>
+          </a>
+        <div>
+        <button type="button" class="delete" (click)="delete(hero.id)" >X</button></div>
+    </li>
+</ul>
+
+
+
